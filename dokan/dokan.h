@@ -32,6 +32,10 @@ with this program. If not, see <http://www.gnu.org/licenses/>.
 #include "fileinfo.h"
 #include "public.h"
 
+#if defined DOKAN_STATIC_LINK && !defined _EXPORTING
+#define _EXPORTING
+#endif
+
 #ifdef _EXPORTING
 /** Export dokan API see also dokan.def for export */
 #define DOKANAPI __stdcall
@@ -1104,6 +1108,10 @@ DOKAN_API PTP_POOL DOKAN_CALLBACK DokanGetThreadPool();
 // Init/shutdown
 void DOKANAPI DokanInit(DOKAN_MEMORY_CALLBACKS *memoryCallbacks);
 void DOKANAPI DokanShutdown();
+
+#ifdef DOKAN_STATIC_LINK
+BOOL WINAPI DllMainRoutine(HINSTANCE instance, DWORD event, LPVOID reserved);
+#endif
 /** @} */
 
 #ifdef __cplusplus

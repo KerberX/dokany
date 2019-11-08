@@ -1843,22 +1843,6 @@ PDOKAN_CONTROL DOKANAPI DokanGetMountPointList(BOOL uncOnly, PULONG nbRead) {
 
 VOID DOKANAPI DokanReleaseMountPointList(PDOKAN_CONTROL list) { free(list); }
 
-BOOL WINAPI DllMain(HINSTANCE Instance, DWORD Reason, LPVOID Reserved) {
-  UNREFERENCED_PARAMETER(Reserved);
-  UNREFERENCED_PARAMETER(Instance);
-
-  switch (Reason) {
-  case DLL_PROCESS_ATTACH: {
-
-  } break;
-  case DLL_PROCESS_DETACH: {
-
-  } break;
-  default:
-    break;
-  }
-  return TRUE;
-}
 
 // https://msdn.microsoft.com/en-us/library/windows/hardware/bb530716(v=vs.85).aspx
 BOOL DokanIsBackupName(DOKAN_CREATE_FILE_EVENT *EventInfo) {
@@ -2196,6 +2180,31 @@ void DOKANAPI DokanShutdown() {
 
 	DeleteCriticalSection(&g_InstanceCriticalSection);
 }
+
+BOOL WINAPI DllMainRoutine(HINSTANCE instance, DWORD event, LPVOID reserved) {
+  UNREFERENCED_PARAMETER(instance);
+  UNREFERENCED_PARAMETER(reserved);
+
+  switch (event)
+  {
+	case DLL_PROCESS_ATTACH: {
+		break;
+	}
+	case DLL_PROCESS_DETACH: {
+		break;
+	}
+	default: {
+		break;
+	}
+  };
+  return TRUE;
+}
+
+#ifndef DOKAN_STATIC_LINK
+BOOL WINAPI DllMain(HINSTANCE Instance, DWORD Reason, LPVOID Reserved) {
+  return DllMainRoutine(Instance, Reason, Reserved);
+}
+#endif
 
 void* DokanMallocImpl(size_t size, const char *fileName, int lineNumber) {
 
