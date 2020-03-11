@@ -36,7 +36,7 @@ with this program. If not, see <http://www.gnu.org/licenses/>.
 #define _EXPORTING
 #endif
 
-#ifdef _EXPORTING
+#if defined _EXPORTING || defined DOKAN_STATIC_LINK
 /** Export dokan API see also dokan.def for export */
 #define DOKANAPI __stdcall
 #define DOKAN_API
