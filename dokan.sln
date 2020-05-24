@@ -17,6 +17,16 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dokan_fuse", "dokan_fuse\do
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTests", "UnitTests\UnitTests.vcxproj", "{46A0F41C-33E1-4912-86E9-14ECEB0D9AAA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "VCPkg", "VCPkg", "{002ADC6A-73CD-48B0-9E80-F80299FDE2D2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ports", "ports", "{50A7B0E0-E7E4-495A-BA8A-C365B925390A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dokany-kerberx", "dokany-kerberx", "{25507179-F7FE-4971-B435-31DA41C02F68}"
+	ProjectSection(SolutionItems) = preProject
+		VCPkg\ports\dokany-kerberx\CONTROL = VCPkg\ports\dokany-kerberx\CONTROL
+		VCPkg\ports\dokany-kerberx\portfile.cmake = VCPkg\ports\dokany-kerberx\portfile.cmake
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM = Debug|ARM
@@ -522,6 +532,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{50A7B0E0-E7E4-495A-BA8A-C365B925390A} = {002ADC6A-73CD-48B0-9E80-F80299FDE2D2}
+		{25507179-F7FE-4971-B435-31DA41C02F68} = {50A7B0E0-E7E4-495A-BA8A-C365B925390A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {285EC6E0-52A5-496A-BCD3-DC5FA161D0FC}

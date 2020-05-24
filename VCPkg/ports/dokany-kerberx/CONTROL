@@ -1,0 +1,6 @@
+Source: dokany-kerberx
+Version: 2.0b
+Homepage: https://github.com/KerberX/dokany
+Description: User mode file system library for windows with FUSE Wrapper.
+Build-Depends:
+Default-Features:
