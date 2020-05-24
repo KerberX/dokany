@@ -74,7 +74,7 @@ endif()
 
 # Copy headers
 file(COPY ${SOURCE_PATH}/dokan DESTINATION ${CURRENT_PACKAGES_DIR}/include FILES_MATCHING PATTERN *.h)
-file(COPY ${SOURCE_PATH}/sys DESTINATION ${CURRENT_PACKAGES_DIR}/include/dokan FILES_MATCHING PATTERN *.h)
+file(COPY ${SOURCE_PATH}/sys/public.h DESTINATION ${CURRENT_PACKAGES_DIR}/include/dokan)
 
 vcpkg_copy_pdbs()
 
